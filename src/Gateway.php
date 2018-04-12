@@ -65,7 +65,7 @@ class Gateway extends AbstractGateway
 
     public function setKey($key)
     {
-        return $this->setKey($key);
+        return $this->setParameter('key', $key);
     }
 
     public function getSignType()
