@@ -3,6 +3,8 @@
 namespace Omnipay\LianLianPay;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\LianLianPay\Message\QueryRefundRequest;
+use Omnipay\LianLianPay\Message\RefundRequest;
 
 class Gateway extends AbstractGateway
 {
@@ -12,6 +14,28 @@ class Gateway extends AbstractGateway
     public function getName()
     {
         return 'LianLianPay';
+    }
+
+    /**
+     * 退款
+     *
+     * @param array $params
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
+    public function refund($params)
+    {
+        return $this->createRequest(RefundRequest::class, $params);
+    }
+
+    /**
+     * 退款结果查询
+     *
+     * @param $params
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
+    public function queryRefund($params)
+    {
+        return $this->createRequest(QueryRefundRequest::class, $params);
     }
 
     public function getOidPartner()
@@ -62,5 +86,15 @@ class Gateway extends AbstractGateway
     public function setValidOrder($validOrder)
     {
         return $this->setParameter('valid_order', $validOrder);
+    }
+
+    public function getNotifyUrl()
+    {
+        return $this->getParameter('notify_url');
+    }
+
+    public function setNotifyUrl($notifyUrl)
+    {
+        return $this->setParameter('notify_url', $notifyUrl);
     }
 }
