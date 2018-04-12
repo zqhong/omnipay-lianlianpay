@@ -1,0 +1,26 @@
+{
+  "name": "zqhong/omnipay-lianlianpay",
+  "description": "A LianLianPay driver for the Omnipay PHP payment processing library.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zqhong",
+      "email": "zqh0513@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\LianLianPay\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "require": {
+    "omnipay/common": "~2.0"
+  },
+  "require-dev": {
+    "omnipay/tests": "~2.0"
+  }
+}
