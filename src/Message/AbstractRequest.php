@@ -34,6 +34,8 @@ abstract class AbstractRequest extends AbstractCommomRequest
             'valid_order' => $this->getValidOrder(),
         ]);
 
+        unset($data['key']);
+
         $result = $api->buildRequestJSON($data, $this->getEndpoint());
         $result = json_decode($result, true);
         return new Response($this, $result);
