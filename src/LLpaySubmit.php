@@ -19,7 +19,7 @@ class LLpaySubmit
      * @param array $para_sort 已排序要签名的数组
      * @return string 签名结果字符串
      */
-    function buildRequestMysign($para_sort)
+    public function buildRequestMysign($para_sort)
     {
         // 把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
         $prestr = createLinkString($para_sort);
@@ -41,7 +41,7 @@ class LLpaySubmit
      * @param array $params 请求前的参数数组
      * @return array 要请求的参数数组
      */
-    function buildRequestParams($params)
+    public function buildRequestParams($params)
     {
         //除去待签名参数数组中的空值和签名参数
         $para_filter = paraFilter($params);
@@ -66,7 +66,7 @@ class LLpaySubmit
      * @param string $endpoint
      * @return string 连连支付处理结果
      */
-    function buildRequestJSON($params, $endpoint)
+    public function buildRequestJSON($params, $endpoint)
     {
         //待请求参数数组字符串
         $request_data = $this->buildRequestParams($params);
